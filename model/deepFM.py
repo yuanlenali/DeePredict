@@ -2,22 +2,18 @@ import pickle
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from util.train_model_util import train_test_model_demo
+from util.train_model_util import train_test_model
 
 EPOCHS = 10
 BATCH_SIZE = 2048
-AID_DATA_DIR = '../data/Criteo/forOtherModels/'  # 辅助用途的文件路径
+DATA_DIR = '/home/lenali/Desktop/CriteoDataset/'
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 """
 PyTorch implementation of DeepFM[1]
 Reference:
-[1] DeepFM: A Factorization-Machine based Neural Network for CTR Prediction,
-    Huifeng Guo, Ruiming Tang, Yunming Yey, Zhenguo Li, Xiuqiang He
-[2] Tensorflow implementation of DeepFM for CTR prediction 
-    https://github.com/ChenglongChen/tensorflow-DeepFM 
-[3] PaddlePaddle implemantation of DeepFM for CTR prediction
-    https://github.com/PaddlePaddle/models/tree/develop/PaddleRec/ctr/deepfm
+DeepFM: A Factorization-Machine based Neural Network for CTR Prediction,
+Huifeng Guo, Ruiming Tang, Yunming Yey, Zhenguo Li, Xiuqiang He
 """
 
 class DeepFM(nn.Module):
@@ -92,11 +88,12 @@ class DeepFM(nn.Module):
 
 
 if __name__ == '__main__':
-    train_data_path, test_data_path = AID_DATA_DIR + 'train_data/', AID_DATA_DIR + 'test_data/'
-    feat_dict_ = pickle.load(open(AID_DATA_DIR + 'aid_data/feat_dict_10.pkl2', 'rb'))
+    train_data_path, test_data_path = DATA_DIR + 'train_data/', DATA_DIR + 'test_data/'
+    feat_dict_file = DATA_DIR + 'aid_data/feat_dict_10.pkl2'
+    feat_dict_ = pickle.load(open(feat_dict_file, 'rb'))
 
     deepfm = DeepFM(num_feat=len(feat_dict_) + 1, num_field=39,
                     dropout_deep=[0.5, 0.5, 0.5, 0.5], dropout_fm=[0, 0],
                     layer_sizes=[400, 400, 400], embedding_size=10).to(DEVICE)
 
-    train_test_model_demo(deepfm, DEVICE, train_data_path, test_data_path, feat_dict_)
+    train_test_model(deepfm, DEVICE, train_data_path, test_data_path, feat_dict_)

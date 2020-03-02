@@ -9,7 +9,7 @@ if __name__ == '__main__':
     if not os.path.isdir('aid_data'):
         os.mkdir('aid_data')
 
-    data_size = 1000
+    data_size = 50000
     subsample_raw_data(data_size)
     split_data(data_size)
     get_feat_dict()
