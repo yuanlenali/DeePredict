@@ -6,7 +6,7 @@ import numpy as np
 import torch.nn.functional as F
 from sklearn.metrics import roc_auc_score
 
-EPOCHS = 5
+EPOCHS = 10
 BATCH_SIZE = 2048
 
 
