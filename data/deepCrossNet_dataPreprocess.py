@@ -1,4 +1,3 @@
-
 from util import *
 
 
@@ -10,7 +9,7 @@ if __name__ == '__main__':
     if not os.path.isdir('aid_data'):
         os.mkdir('aid_data')
 
-    data_size = 5
+    data_size = 50000
     if os.path.exists('subsampled_raw_data/subsampled_train_' + str(data_size) + ".txt"):
         os.remove('subsampled_raw_data/subsampled_train_' + str(data_size) + ".txt") 
     if os.path.exists('train_data/train.txt'):

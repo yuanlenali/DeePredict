@@ -10,7 +10,14 @@ if __name__ == '__main__':
         os.mkdir('aid_data')
 
     data_size = 50000
-    subsample_raw_data(data_size)
+    if os.path.exists('subsampled_raw_data/subsampled_train_' + str(data_size) + ".txt"):
+        os.remove('subsampled_raw_data/subsampled_train_' + str(data_size) + ".txt") 
+    if os.path.exists('train_data/train.txt'):
+        os.remove('train_data/train.txt') 
+    if os.path.exists('test_data/test.txt'):
+        os.remove('test_data/test.txt') 
+
+    subsample_raw_data(data_size)    
     split_data(data_size)
     get_feat_dict()
     print('Done!')
