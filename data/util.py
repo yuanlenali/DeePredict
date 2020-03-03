@@ -14,7 +14,8 @@ def subsample_raw_data(data_size):
     fout = open('subsampled_raw_data/subsampled_train_' + str(data_size) + ".txt", 'w')
     for line_idx, line in enumerate(fin):
         fout.write(line)
-        if line_idx == data_size - 1:
+        # do not subsample dataset if data_size < 0
+        if data_size > 0 and line_idx == data_size - 1:
             fout.close()
             break
 
@@ -52,7 +53,7 @@ def get_feat_dict():
 
     if not os.path.exists(dir_feat_dict_):
         # print('generate a feature dict')
-        # Count the number of occurrences of discrete features
+        # Count the number of occurrences of sparse features
         feat_cnt = Counter()
         with open('train_data/train.txt', 'r') as fin:
             for line_idx, line in enumerate(fin):
@@ -61,20 +62,20 @@ def get_feat_dict():
                     if features[idx] == '': continue
                     feat_cnt.update([features[idx]])
 
-        # Only retain discrete features with high frequency
+        # Only retain sparse features with high frequency
         dis_feat_set = set()
         for feat, ot in feat_cnt.items():
             if ot >= freq_:
                 dis_feat_set.add(feat)
 
-        # Create a dictionary for continuous and discrete features
+        # Create a dictionary for dense and sparse features
         feat_dict = {}
         tc = 1
-        # Continuous features
+        # dense features
         for idx in continuous_range_:
             feat_dict[idx] = tc
             tc += 1
-        # Discrete features
+        # sparse features
         cnt_feat_set = set()
         with open('train_data/train.txt', 'r') as fin:
             for line_idx, line in enumerate(fin):
