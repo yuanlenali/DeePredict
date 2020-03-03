@@ -11,7 +11,7 @@ DATA_DIR = '/home/lenali/Desktop/CriteoDataset/'
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 """
-PyTorch implementation of DCN[1]
+PyTorch implementation of DCN
 Reference:
 Deep & Cross Network for Ad Click Predictions
 Ruoxi Wang, Bin Fu, Gang Fu, Mingliang Wang

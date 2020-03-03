@@ -11,7 +11,7 @@ DATA_DIR = '/home/lenali/Desktop/CriteoDataset/'
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 """
-PyTorch implementation of DeepFM[1]
+PyTorch implementation of DeepFM
 Reference:
 DeepFM: A Factorization-Machine based Neural Network for CTR Prediction,
 Huifeng Guo, Ruiming Tang, Yunming Yey, Zhenguo Li, Xiuqiang He
