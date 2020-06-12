@@ -17,4 +17,4 @@ DeePredict implements state-of-art Deep Neural Network based algorithm for CTR P
     - paper link: https://arxiv.org/abs/1708.05123
     - How To Run: Run data/deepCrossNet_dataPreprocess.py to pre-process the data, then run model/deepCrossNet.py.
 
-- ##### xDeepFM:
+- ##### xDeepFM: to do
