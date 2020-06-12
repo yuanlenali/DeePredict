@@ -1,6 +1,6 @@
 # DeePredict
 
-DeePredict implements state-of-art Deep Neural Network based algorithm for CTR Prediction.
+DeePredict implements state-of-art Deep Neural Network based algorithm for CTR Prediction. 
 
 ## Dataset
 - The algorithms use Criteo (Kaggle) dataset, which contains about 45 million records. There are 13 numerical (dense) features and 26 categorical (sparse) features.
@@ -16,3 +16,5 @@ DeePredict implements state-of-art Deep Neural Network based algorithm for CTR P
     - Deep & Cross Network for Ad Click Predictions
     - paper link: https://arxiv.org/abs/1708.05123
     - How To Run: Run data/deepCrossNet_dataPreprocess.py to pre-process the data, then run model/deepCrossNet.py.
+
+- ##### xDeepFM:
