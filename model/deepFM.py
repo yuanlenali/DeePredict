@@ -7,7 +7,7 @@ from util.train_model_util import train_test_model
 EPOCHS = 10
 BATCH_SIZE = 2048
 # TODO: to deprecate abs pat
-DATA_DIR = '/home/lenali/Desktop/CriteoDataset/'
+DATA_DIR = '/Users/chenguangxi/Desktop/InsightDemo/'
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 """

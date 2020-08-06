@@ -24,7 +24,4 @@ if __name__ == '__main__':
     subsample_raw_data(data_size)    
     split_data(data_size)
     get_feat_dict()
-    print("this branch will tune hyper-parameter!")
-    print("The hyper-parameter to be tuned includes learning rate.")
-    print("tuned the learnaing rate again.")
     print('Done!')
