@@ -2,12 +2,12 @@ import pickle
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from util.train_model_util import train_test_model
+from train_model_util import train_test_model
 
 EPOCHS = 10
 BATCH_SIZE = 2048
 # TODO: to deprecate abs pat
-DATA_DIR = '/Users/chenguangxi/Desktop/InsightDemo/'
+DATA_DIR = '/Users/chenguangxi/Desktop/Insight/'
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 """
