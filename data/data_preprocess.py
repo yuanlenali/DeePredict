@@ -1,5 +1,10 @@
-from util import *
-
+import os
+import sys
+from util import (
+    subsample_raw_data,
+    split_data,
+    get_feat_dict,
+)
 
 if __name__ == '__main__':
     if not os.path.isdir('raw_data') or \
